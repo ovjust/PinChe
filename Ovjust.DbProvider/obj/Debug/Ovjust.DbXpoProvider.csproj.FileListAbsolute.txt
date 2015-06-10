@@ -1,0 +1,6 @@
+E:\my_program\1GitHubCenter\PinChe\Ovjust.DbProvider\bin\Debug\Ovjust.DbXpoProvider.dll.config
+E:\my_program\1GitHubCenter\PinChe\Ovjust.DbProvider\bin\Debug\Ovjust.DbXpoProvider.dll
+E:\my_program\1GitHubCenter\PinChe\Ovjust.DbProvider\bin\Debug\Ovjust.DbXpoProvider.pdb
+E:\my_program\1GitHubCenter\PinChe\Ovjust.DbProvider\obj\Debug\Ovjust.DbXpoProvider.csprojResolveAssemblyReference.cache
+E:\my_program\1GitHubCenter\PinChe\Ovjust.DbProvider\obj\Debug\Ovjust.DbXpoProvider.dll
+E:\my_program\1GitHubCenter\PinChe\Ovjust.DbProvider\obj\Debug\Ovjust.DbXpoProvider.pdb

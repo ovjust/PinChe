@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{232F1F89-C
 		docs\TextFile2.txt = docs\TextFile2.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovjust.Test", "Ovjust.Test\Ovjust.Test.csproj", "{8F9465B1-789B-4A9C-8A70-D741F68667A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{ECEA02E9-DFE5-45AC-9D64-8DA41643C1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECEA02E9-DFE5-45AC-9D64-8DA41643C1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECEA02E9-DFE5-45AC-9D64-8DA41643C1A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F9465B1-789B-4A9C-8A70-D741F68667A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F9465B1-789B-4A9C-8A70-D741F68667A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F9465B1-789B-4A9C-8A70-D741F68667A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F9465B1-789B-4A9C-8A70-D741F68667A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

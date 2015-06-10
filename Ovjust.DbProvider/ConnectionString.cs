@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Configuration;
 
 namespace Ovjust.DbXpoProvider
 {
@@ -12,47 +13,79 @@ namespace Ovjust.DbXpoProvider
 
         public string DbServer
         {
-            get {
+            get
+            {
                 if (dbServer == null)
                 {
-                    dbServer= Environment.GetEnvironmentVariable("OPENSHIFT_MYSQL_DB_HOST");
-                
+                    dbServer = Environment.GetEnvironmentVariable("OPENSHIFT_MYSQL_DB_HOST");
+                    if (dbServer == null)
+                        dbServer = ConfigurationManager.AppSettings["dbServer"];
                 }
-                return dbServer; }
+                return dbServer;
+            }
         }
         string dbUser;
 
         public string DbUser
         {
-            get { return dbUser; }
+            get
+            {
+                if (dbUser == null)
+                    dbUser = ConfigurationManager.AppSettings["dbUser"];
+                return dbUser;
+            }
         }
         string dbPwd;
 
         public string DbPwd
         {
-            get { return dbPwd; }
+            get
+            {
+                if (dbPwd == null)
+                    dbPwd = ConfigurationManager.AppSettings["dbPwd"];
+                return dbPwd;
+            }
         }
 
         string dbName;
 
         public string DbName
         {
-            get { return dbName; }
+            get
+            {
+                if (dbName == null)
+                    dbName = ConfigurationManager.AppSettings["dbName"];
+                return dbName;
+            }
         }
 
         string mysqlPort;
         public string MysqlPort
         {
-            get {
-                if(mysqlPort==null)
-                    mysqlPort = Environment.GetEnvironmentVariable("OPENSHIFT_MYSQL_DB_PORT"); 
-                return mysqlPort; }
+            get
+            {
+                if (mysqlPort == null)
+                {
+                    mysqlPort = Environment.GetEnvironmentVariable("OPENSHIFT_MYSQL_DB_PORT");
+                    if (mysqlPort == null)
+                        mysqlPort = ConfigurationManager.AppSettings["dbServer"];
+                }
+                return mysqlPort;
+            }
         }
-        EDbType eDbType = EDbType.MySql;
+        EDbType eDbType = EDbType.None;
 
         public EDbType EDbType
         {
-            get { return eDbType; }
+            get
+            {
+                if (eDbType == EDbType.None)
+                {
+                    var sType = ConfigurationManager.AppSettings["dbServer"];
+                    eDbType = (EDbType)Enum.Parse(typeof(EDbType), sType, true);
+                }
+                return eDbType;
+            }
         }
         public static string GetString()
         {
@@ -69,12 +102,11 @@ namespace Ovjust.DbXpoProvider
 
                 case EDbType.MsSql:
                     str = MSSqlConnectionProvider.GetConnectionString(connObj.dbServer, connObj.dbUser, connObj.dbPwd, connObj.dbName);
-                    str += string.Format("port={0};", connObj.MysqlPort);
                     break;
             }
             return str;
         }
     }
 
-    public enum EDbType { MsSql, MySql, Access }
+    
 }
