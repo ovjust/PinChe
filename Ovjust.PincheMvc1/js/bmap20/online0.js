@@ -1,0 +1,1 @@
+MPC_Mgr.TANGRAM__1.getPoiData({"content":[{"error_no":0,"tileid":"11_393_147","uid_num":0,"uids":[]}]});

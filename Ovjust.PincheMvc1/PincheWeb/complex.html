@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html{width: 100%;height: 100%; margin:0;font-family:"微软雅黑";}
+		#l-map{height:300px;width:100%;}
+		#r-result{width:100%;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=4c77ac8f8318a8c1b226cd83b434cf32"></script>
+    <script src="../Scripts/jquery-1.8.3.js"></script>
+	<title>浏览器定位</title>
+</head>
+<body>
+    <div>
+    
+        </div>
+    <div>
+        起点<input type="text" id="txtCity1" placeholder="正在定位中..." /><input type="button" id="btnChangeCity1" value="更改"  style="display:none;"/>
+        <input type="text" id="txtStart" disabled="disabled" /> <input type="button" id="btnSelectFromMap1"  value="从地图选点" disabled="disabled"/><br />
+        终点<input type="text" id="txtCity2"  placeholder="正在定位中..."/><input type="button" id="btnChangeCity2" value="更改"  style="display:none;"/>
+        <input type="text" id="txtEnd"  disabled="disabled"/> <input type="button" id="btnSelectFromMap2" value="从地图选点" disabled="disabled"/><br />
+       <input type="button" id="btnChangeStartEnd"  value="交换起止点" disabled="disabled"/>
+        <input type="button" id="btnSearchRoute" value="查询线路" />
+    </div>
+    <div id="divSelectRoute" style="display:none;">选择线路
+       <label><input type="checkbox" />非选定线路</label>
+    </div>
+    <div id="divSelectPlan" style="display:none;">选择方案
+       <select multiple="multiple" id="sltPlans">
+           <optgroup label="途经次序">
+                <option value="">My起=Ta起-Ta止=My止</option>
+                <option value="">My起=Ta起-Ta止-My止</option>
+               <option value="">My起=Ta起-My止-Ta止</option>
+               <option value="">My起-Ta起-Ta止=My止</option>
+              <option value="">Ta起-My起-Ta止=My止</option>
+                <option value="">My起-Ta起-Ta止-My止</option>
+                <option value="">My起-Ta起-My止-Ta止</option>
+                <option value="">Ta起-My起-Ta止-My止</option>
+                <option value="">Ta起-My起-My止-Ta止</option>
+           </optgroup>
+           <optgroup label="其它条件">
+               <option value="">需要Ta无车</option>
+                <option value="">需要Ta有车</option>
+               <option value="">双方路程差小于1/2</option>
+               <option value="">允许路径略微变化</option>
+           </optgroup>
+       </select>
+        <label>Wo有车<input type="checkbox" value="" id="cbHasCar" /></label>
+    </div>
+    <div id="divSubmit"  style="display:none;">
+     <input type="button" id="btnSubmit"  value="保存My线路"/></div>
+    <div id="divPopupMap" style="display:none;position:absolute;z-index:3;">
+        <h1 id="mapTitle"></h1><input type="button" id="btnSelectPoint" value="确定" />
+	<div id="l-map"></div>
+	<div id="r-result"></div>
+    </div>
+
+</body>
+</html>
+<script src="JavaScript1.js"></script>
