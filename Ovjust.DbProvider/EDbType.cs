@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ovjust.Pinche.Model
+namespace Ovjust.DbXpoProvider
 {
-    public class Class1
-    {
-    }
+    public enum EDbType { None, MsSql, MySql, Access }
 }

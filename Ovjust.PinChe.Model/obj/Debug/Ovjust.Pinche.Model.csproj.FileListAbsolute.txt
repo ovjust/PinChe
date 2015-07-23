@@ -1,0 +1,5 @@
+E:\my_program\1GitHubCenter\PinChe\Ovjust.PinChe.Model\bin\Debug\Ovjust.Pinche.Model.dll
+E:\my_program\1GitHubCenter\PinChe\Ovjust.PinChe.Model\bin\Debug\Ovjust.Pinche.Model.pdb
+E:\my_program\1GitHubCenter\PinChe\Ovjust.PinChe.Model\obj\Debug\Ovjust.Pinche.Model.csprojResolveAssemblyReference.cache
+E:\my_program\1GitHubCenter\PinChe\Ovjust.PinChe.Model\obj\Debug\Ovjust.Pinche.Model.dll
+E:\my_program\1GitHubCenter\PinChe\Ovjust.PinChe.Model\obj\Debug\Ovjust.Pinche.Model.pdb
