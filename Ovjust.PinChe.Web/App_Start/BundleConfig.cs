@@ -38,6 +38,9 @@ namespace Ovjust.Pinche.Web
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new StyleBundle("~/cssDataTables").Include("~/Content/DataTables/css/jquery.dataTables.css"));
+            bundles.Add(new ScriptBundle("~/jsDataTables").Include("~/Scripts/DataTables/jquery.dataTables.js"));
         }
     }
 }

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ovjust.Pinche.Model</RootNamespace>
     <AssemblyName>Ovjust.Pinche.Model</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,7 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyKeyValue.cs" />
+    <Compile Include="Orm\Base\XPObjectBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ovjust.Pinche.Basic\Ovjust.Pinche.Basic.csproj">
+      <Project>{1f04714d-ddd4-4f1c-8d06-e9afde5a194d}</Project>
+      <Name>Ovjust.Pinche.Basic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

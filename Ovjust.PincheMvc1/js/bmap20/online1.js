@@ -1,1 +1,0 @@
-MPC_Mgr.TANGRAM__1.getPoiData({"content":[{"error_no":0,"tileid":"11_394_147","uid_num":1,"uids":[{"bound":{"xmax":12934917.53,"xmin":12925317.53,"ymax":4850251.46,"ymin":4847947.46},"catalog":"010A0101","icon":{"x":12926469.53,"y":4849099.46},"name":"","type":"feijichang","uid":"17a24760d65fbecc4354d7f8"}]}]});

@@ -1,0 +1,17 @@
+﻿{
+	"sEmptyTable": "没有可用数据",
+	"sInfo": "显示_START_-_END_条，共有_TOTAL_条数据",
+	"sInfoEmpty": "暂无记录",
+	"sInfoFiltered": "(一共有 _MAX_  条记录)",
+	"sLengthMenu": "每页显示 _MENU_ 行",
+	"sLoadingRecords": "",
+    "sProcessing": "",
+	"sSearch": "快速检索:",
+	"sZeroRecords": "没有匹配的记录",
+    "oPaginate": {
+		"sFirst": "首页",
+		"sPrevious": " 上一页 ",
+		"sNext": " 下一页 ",
+		"sLast": " 末页 "
+     }
+}

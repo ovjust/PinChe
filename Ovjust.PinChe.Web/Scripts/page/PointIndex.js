@@ -1,0 +1,107 @@
+﻿
+
+
+function initTable() {
+    oTable = $('#list').dataTable({
+        "sDom": 'rtip',
+        "bProcessing": true,
+        "bServerSide": true,
+        "bFilter": true,
+        'bAutoWidth': true,
+        "sScrollY": "315px",
+        'aaSorting': [[7, "desc"]],
+        "sPaginationType": "full_numbers",
+        "sAjaxSource": "/api/vendor",
+        "sAjaxDataProp": "Results",//保存列表的字段
+        "fnServerData": DataTablesOption.fnServerData_fillEmpty,
+        "fnRowCallback": function (nRow, aData, iDisplayIndex) {
+            for (var i = 0; i < tdColTitles.length; i++) {
+                PageCommon.generateTdTitle(nRow, tdColTitles[i]);
+            }
+        },
+        "fnServerParams": function (aoData) {
+            //aoData.push({ name: 'StatusId', value: StatusId });
+            //aoData.push({ name: 'CompanyCodeId', value: CompanyCodeId });
+            //aoData.push({ name: 'VendorCNName', value: VendorCNName });
+            //aoData.push({ name: 'CreateStartDate', value: CreateStartDate });
+            //aoData.push({ name: 'CreateEndDate', value: CreateEndDate });
+            //aoData.push({ name: 'VendorCode', value: VendorCode });
+            //aoData.push({ name: 'CreatedUserName', value: CreatedUserName });
+            //aoData.push({ name: 'PurchansingOrganizationId', value: PurchansingOrganizationId });
+            //aoData.push({ name: 'AccountGroupId', value: AccountGroupId });
+            //aoData.push({ name: 'bPage', value: true });
+        },
+        'fnInitComplete': function (oSettings, json) {
+            //if (bCreate)
+            $('div.dataTables_wrapper').prepend('<div class="dataTables_filter"><span class="add-new"><a href="/Vendor/Add">新增</a></span><span class="multi-upload"><a id="aUpload" href="javascript:" >数据上传</a></span> <span class="add-new"><a href="/Vendor/Search">查询/修改</a></span> <span class="add-new"><a href="/Vendor/Extend">扩展</a></span> <span class="add-new"><a href="/Vendor/Freeze">冻结/解冻</a></span></div>');
+            //$('a.first').html('<img alt="" src="/Images/first.png" />');
+            //$('a.previous').html('<img alt="" src="/Images/prev.png" />');
+            //$('a.next').html('<img alt="" src="/Images/next.png" />');
+            //$('a.last').html('<img alt="" src="/Images/last.png" />');
+        },
+        "fnDrawCallback": function (oSettings) {
+            //$('div.dataTables_scrollHeadInner').css('width', '100%').css('padding-right', '0px');
+            //$('table.dataTable').css('width', '100%');
+            //var pageIndex = oSettings._iDisplayStart / oSettings._iDisplayLength + 1;
+            //$('div.dataTables_paginate > span').html('第 <input id="txtSetPage" type="text" value="' + pageIndex + '" style="width:3em; text-align:center;"> 页');
+            //$('#txtSetPage').keypress(function () {
+            //    if (event.keyCode == 13) {
+            //        var newPage = parseInt($('#txtSetPage').val());
+            //        if (newPage > 0)
+            //            oTable.fnPageChange(newPage - 1);
+            //    }
+            //});
+            //PageCommon.setPageHeight();
+        },
+        "aoColumns": [
+                        { "mData": "VendorHeader.Code", 'sDefaultContent': '', 'sClass': '', 'sWidth': '', "fnRender": function (obj) { return obj.aData.VendorCode; } },
+                        { "mData": "VendorHeader.ChineseName1Id", 'sDefaultContent': '', 'sClass': 'left', 'sWidth': '', "fnRender": function (obj) { return obj.aData.ChineseName1Name; } },
+                        {
+                            "mData": "VendorCompCode.CompanyCode.Description", 'sDefaultContent': '', 'sClass': 'left', 'sWidth': '', "fnRender": function (obj) {
+                                return obj.aData.CompanyCodeName;
+                            }
+                        },
+                        { "mData": "VendorSaleArea.PurchansingOrganization.Description", 'sDefaultContent': '', 'sClass': 'left', 'sWidth': '', "fnRender": function (obj) { return obj.aData.PurchansingOrganizationName; } },
+                        {
+                            "mData": "VendorHeader.VendorType.Description", 'sDefaultContent': '', 'sWidth': '', "fnRender": function (obj) {
+                                return obj.aData.VendorTypeName;
+                            }
+                        },
+                         {
+                             "mData": "RoleActionId", 'sDefaultContent': '', 'sClass': 'left',
+                             'sWidth': '', "fnRender": function (obj) {
+                                 return obj.aData.RoleActionName;
+                             }
+                         },
+                         {
+                             "mData": "LastUpdatedUserName", 'sDefaultContent': '', 'sClass': 'left',
+                             'sWidth': ''
+                         },
+                         {
+                             "mData": "CreatedDate", 'sDefaultContent': '', //'sWidth': '20%', 
+                             "fnRender": function (obj) {
+                                 return PageCommon.formatTime(obj.aData.CreatedDate);
+                             }
+                         },
+
+                        {
+                            "mData": "Status.Description", 'sDefaultContent': '',// 'sWidth': '5%',
+                            "fnRender": function (obj) {
+                                var link = '';
+                                if (obj.aData.Id)
+                                    link = '<a href="' + obj.aData.WorkflowUrl + '">' + obj.aData.StatusName + '</a>';
+                                return link;
+                            }
+                        },
+                        {
+                            "mData": 'Operate',
+                            'sDefaultContent': '',
+                            "sClass": "left",
+                            "bSortable": false
+                        }
+        ],
+        "oLanguage": {
+            "sUrl": StaticValues.DataTablesLanguageCn
+        }
+    });
+}

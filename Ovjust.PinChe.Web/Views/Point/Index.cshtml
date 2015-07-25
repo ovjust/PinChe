@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "地点收藏";
+}
+
+<nav>
+    <div id="jCrumbs" class="breadCrumb module">
+        <ul>
+            <li>
+                <a href="#"><i class="icon-home"></i></a>
+            </li>
+            <li>
+                <a href="#">Sports & Toys</a>
+            </li>
+            <li>
+                <a href="#">Toys & Hobbies</a>
+            </li>
+            <li>
+                <a href="#">Learning & Educational</a>
+            </li>
+            <li>
+                <a href="#">Astronomy & Telescopes</a>
+            </li>
+            <li>Telescope 3735SX 
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div>
+    <h3 class="heading">@ViewBag.Title</h3>
+</div>
+
+<div class="row-fluid">
+    <div class="span12">
+        <div class="formSep">
+            <p><span class="label label-inverse">条件:</span></p>
+               <div class="formSep">
+              <table id="list" class="datagrid listview table-responsive">
+        <thead>
+            <tr>
+                <th width="10%" style=" text-align: left;">代码</th>
+                <th width="12%" style=" text-align: center;">供应商名称</th>
+                <th  width="8%" style=" text-align: center;">公司代码</th>
+                <th  width="12%" style=" text-align: center;">采购组织</th>
+                <th  width="12%" style=" text-align: center;">账户组</th>
+                  <th  width="8%" style=" text-align: center;">操作类型</th>
+                <th width="8%"  style=" text-align: center;">创建人</th>
+                <th width="12%"  style=" text-align: center;">创建时间</th>
+                <th width="8%"  style=" text-align: center;">状态</th>
+                <th width="10%"  style=" text-align: center;">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row-fluid">
+    <div class="span12">
+            <div class="formSep">
+                <label>Input field</label>
+                <input type="text" />
+                <span class="help-inline">help inline</span>
+                <span class="help-block">help block</span>
+            </div>
+            <div class="formSep">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <label>Textarea</label>
+                        <textarea name="txtarea_reg" id="txtarea_reg" cols="10" rows="3"></textarea>
+                    </div>
+                    <div class="span6">
+                        <label>Textarea with <code>.span8</code> class</label>
+                        <textarea name="txtarea_sp" id="txtarea_sp" cols="10" rows="3" class="span8"></textarea>
+                    </div>
+                </div>
+            </div>
+       
+    </div>
+</div>
+
+
+@section scripts{
+     @Styles.Render("~/cssDataTables")
+    @Scripts.Render("~/jsDataTables")
+    <script>
+        var opFileExt = 'xlsx,xls';
+        var bCreate = '@ViewBag.bCreate' == 'True';
+        $(function () {
+
+        });
+    </script>
+    <script src="~/Scripts/page/PointIndex.js"></script>
+}

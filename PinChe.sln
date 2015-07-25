@@ -24,9 +24,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovjust.Pinche.Web", "Ovjust
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovjust.Pinche.Web.Tests", "Ovjust.Pinche.Web.Tests\Ovjust.Pinche.Web.Tests.csproj", "{C4C39E0F-EF14-4226-BC34-3BDCF5E852A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovjust.PincheMvc", "Ovjust.PincheMvc2\Ovjust.PincheMvc.csproj", "{38E438EF-7ADF-40D2-979F-E09FE646DC8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovjust.Pinche.Basic", "Ovjust.Pinche.Basic\Ovjust.Pinche.Basic.csproj", "{1F04714D-DDD4-4F1C-8D06-E9AFDE5A194D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovjust.BaiduMap", "Ovjust.BaiduMap\Ovjust.BaiduMap.csproj", "{31E74C48-677A-4F4C-B910-E0DEB580479A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ovjust.BaiduMap", "..\Ovjust.BaiduMap\Ovjust.BaiduMap\Ovjust.BaiduMap.csproj", "{31E74C48-677A-4F4C-B910-E0DEB580479A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,12 +74,12 @@ Global
 		{C4C39E0F-EF14-4226-BC34-3BDCF5E852A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4C39E0F-EF14-4226-BC34-3BDCF5E852A4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C4C39E0F-EF14-4226-BC34-3BDCF5E852A4}.Release|x86.ActiveCfg = Release|Any CPU
-		{38E438EF-7ADF-40D2-979F-E09FE646DC8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38E438EF-7ADF-40D2-979F-E09FE646DC8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38E438EF-7ADF-40D2-979F-E09FE646DC8C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{38E438EF-7ADF-40D2-979F-E09FE646DC8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38E438EF-7ADF-40D2-979F-E09FE646DC8C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38E438EF-7ADF-40D2-979F-E09FE646DC8C}.Release|x86.ActiveCfg = Release|Any CPU
+		{1F04714D-DDD4-4F1C-8D06-E9AFDE5A194D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F04714D-DDD4-4F1C-8D06-E9AFDE5A194D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F04714D-DDD4-4F1C-8D06-E9AFDE5A194D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1F04714D-DDD4-4F1C-8D06-E9AFDE5A194D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F04714D-DDD4-4F1C-8D06-E9AFDE5A194D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F04714D-DDD4-4F1C-8D06-E9AFDE5A194D}.Release|x86.ActiveCfg = Release|Any CPU
 		{31E74C48-677A-4F4C-B910-E0DEB580479A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{31E74C48-677A-4F4C-B910-E0DEB580479A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31E74C48-677A-4F4C-B910-E0DEB580479A}.Debug|x86.ActiveCfg = Debug|Any CPU
