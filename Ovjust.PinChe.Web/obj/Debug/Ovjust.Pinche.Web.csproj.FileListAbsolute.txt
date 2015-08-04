@@ -57,3 +57,7 @@ I:\my_program_middle\PinChe\Ovjust.Pinche.Web\bin\DevExpress.Xpo.v12.1.dll
 I:\my_program_middle\PinChe\Ovjust.Pinche.Web\bin\DevExpress.Xpo.v12.1.Extensions.dll
 I:\my_program_middle\PinChe\Ovjust.Pinche.Web\bin\Ovjust.DbXpoProvider.dll
 I:\my_program_middle\PinChe\Ovjust.Pinche.Web\bin\Ovjust.DbXpoProvider.pdb
+I:\my_program_middle\PinChe\Ovjust.Pinche.Web\bin\Ovjust.Pinche.Model.dll
+I:\my_program_middle\PinChe\Ovjust.Pinche.Web\bin\Ovjust.Pinche.Basic.dll
+I:\my_program_middle\PinChe\Ovjust.Pinche.Web\bin\Ovjust.Pinche.Model.pdb
+I:\my_program_middle\PinChe\Ovjust.Pinche.Web\bin\Ovjust.Pinche.Basic.pdb

@@ -1,35 +1,29 @@
-﻿
+﻿var oTable;
+$(function () {
+    initTable();
 
+});
 
 function initTable() {
     oTable = $('#list').dataTable({
         "sDom": 'rtip',
         "bProcessing": true,
-        "bServerSide": true,
+        "bServerSide": false,
         "bFilter": true,
         'bAutoWidth': true,
         "sScrollY": "315px",
-        'aaSorting': [[7, "desc"]],
+        'aaSorting': [[4, "desc"]],
         "sPaginationType": "full_numbers",
-        "sAjaxSource": "/api/vendor",
-        "sAjaxDataProp": "Results",//保存列表的字段
-        "fnServerData": DataTablesOption.fnServerData_fillEmpty,
-        "fnRowCallback": function (nRow, aData, iDisplayIndex) {
-            for (var i = 0; i < tdColTitles.length; i++) {
-                PageCommon.generateTdTitle(nRow, tdColTitles[i]);
-            }
-        },
+        "sAjaxSource": "/api/mypoint",
+        //"sAjaxDataProp": "Results",//保存列表的字段
+        //"fnServerData": DataTablesOption.fnServerData_fillEmpty,
+        //"fnRowCallback": function (nRow, aData, iDisplayIndex) {
+        //    for (var i = 0; i < tdColTitles.length; i++) {
+        //        PageCommon.generateTdTitle(nRow, tdColTitles[i]);
+        //    }
+        //},
         "fnServerParams": function (aoData) {
             //aoData.push({ name: 'StatusId', value: StatusId });
-            //aoData.push({ name: 'CompanyCodeId', value: CompanyCodeId });
-            //aoData.push({ name: 'VendorCNName', value: VendorCNName });
-            //aoData.push({ name: 'CreateStartDate', value: CreateStartDate });
-            //aoData.push({ name: 'CreateEndDate', value: CreateEndDate });
-            //aoData.push({ name: 'VendorCode', value: VendorCode });
-            //aoData.push({ name: 'CreatedUserName', value: CreatedUserName });
-            //aoData.push({ name: 'PurchansingOrganizationId', value: PurchansingOrganizationId });
-            //aoData.push({ name: 'AccountGroupId', value: AccountGroupId });
-            //aoData.push({ name: 'bPage', value: true });
         },
         'fnInitComplete': function (oSettings, json) {
             //if (bCreate)
@@ -54,54 +48,46 @@ function initTable() {
             //PageCommon.setPageHeight();
         },
         "aoColumns": [
-                        { "mData": "VendorHeader.Code", 'sDefaultContent': '', 'sClass': '', 'sWidth': '', "fnRender": function (obj) { return obj.aData.VendorCode; } },
-                        { "mData": "VendorHeader.ChineseName1Id", 'sDefaultContent': '', 'sClass': 'left', 'sWidth': '', "fnRender": function (obj) { return obj.aData.ChineseName1Name; } },
+                        { "mData": "Name", 'sDefaultContent': '', 'sClass': '', 'sWidth': '' },
+                        { "mData": "Address", 'sDefaultContent': '', 'sClass': 'left', 'sWidth': ''},
                         {
-                            "mData": "VendorCompCode.CompanyCode.Description", 'sDefaultContent': '', 'sClass': 'left', 'sWidth': '', "fnRender": function (obj) {
-                                return obj.aData.CompanyCodeName;
-                            }
-                        },
-                        { "mData": "VendorSaleArea.PurchansingOrganization.Description", 'sDefaultContent': '', 'sClass': 'left', 'sWidth': '', "fnRender": function (obj) { return obj.aData.PurchansingOrganizationName; } },
-                        {
-                            "mData": "VendorHeader.VendorType.Description", 'sDefaultContent': '', 'sWidth': '', "fnRender": function (obj) {
-                                return obj.aData.VendorTypeName;
-                            }
-                        },
+                            "mData": "City", 'sDefaultContent': '', 'sClass': 'left', 'sWidth': ''},
                          {
-                             "mData": "RoleActionId", 'sDefaultContent': '', 'sClass': 'left',
-                             'sWidth': '', "fnRender": function (obj) {
-                                 return obj.aData.RoleActionName;
-                             }
-                         },
-                         {
-                             "mData": "LastUpdatedUserName", 'sDefaultContent': '', 'sClass': 'left',
-                             'sWidth': ''
-                         },
-                         {
-                             "mData": "CreatedDate", 'sDefaultContent': '', //'sWidth': '20%', 
+                             "mData": "CreatedTime", 'sDefaultContent': '', //'sWidth': '20%', 
                              "fnRender": function (obj) {
-                                 return PageCommon.formatTime(obj.aData.CreatedDate);
+                                 return PageCommon.formatTime(obj.aData.CreatedTime);
                              }
                          },
 
                         {
-                            "mData": "Status.Description", 'sDefaultContent': '',// 'sWidth': '5%',
+                            "mData": null, 'sDefaultContent': '',// 'sWidth': '5%',
                             "fnRender": function (obj) {
                                 var link = '';
-                                if (obj.aData.Id)
-                                    link = '<a href="' + obj.aData.WorkflowUrl + '">' + obj.aData.StatusName + '</a>';
+                                link += '<a name="modify" href="javascript:">修改</a>';
+                                link += '<a name="delete" href="javascript:">删除</a>';
                                 return link;
                             }
                         },
-                        {
-                            "mData": 'Operate',
-                            'sDefaultContent': '',
-                            "sClass": "left",
-                            "bSortable": false
-                        }
         ],
         "oLanguage": {
             "sUrl": StaticValues.DataTablesLanguageCn
         }
+    });
+
+
+    //修改
+    $('#list tbody').on('click', 'a[name="modify"]', function (event) {
+        DialogInit.openEditRole();
+        var aData = RoleInit.getTableRowData(this);
+        RoleInit.bindRowData(aData);
+    });
+    //删除
+    $('#list tbody').on('click', 'a[name="delete"]', function (event) {
+        if (!confirm("确认要删除吗？"))
+            return;
+
+        var aData = RoleInit.getTableRowData(this);
+
+        //RoleInit.oTable.fnDeleteRow(curRoleIndex);
     });
 }

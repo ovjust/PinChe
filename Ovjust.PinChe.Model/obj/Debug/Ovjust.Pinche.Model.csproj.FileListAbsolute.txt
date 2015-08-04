@@ -3,3 +3,12 @@ E:\my_program\1GitHubCenter\PinChe\Ovjust.PinChe.Model\bin\Debug\Ovjust.Pinche.M
 E:\my_program\1GitHubCenter\PinChe\Ovjust.PinChe.Model\obj\Debug\Ovjust.Pinche.Model.csprojResolveAssemblyReference.cache
 E:\my_program\1GitHubCenter\PinChe\Ovjust.PinChe.Model\obj\Debug\Ovjust.Pinche.Model.dll
 E:\my_program\1GitHubCenter\PinChe\Ovjust.PinChe.Model\obj\Debug\Ovjust.Pinche.Model.pdb
+I:\my_program_middle\PinChe\Ovjust.PinChe.Model\obj\Debug\Ovjust.Pinche.Model.csprojResolveAssemblyReference.cache
+I:\my_program_middle\PinChe\Ovjust.PinChe.Model\obj\Debug\Ovjust.Pinche.Model.dll
+I:\my_program_middle\PinChe\Ovjust.PinChe.Model\obj\Debug\Ovjust.Pinche.Model.pdb
+I:\my_program_middle\PinChe\Ovjust.PinChe.Model\bin\Debug\Ovjust.Pinche.Model.dll
+I:\my_program_middle\PinChe\Ovjust.PinChe.Model\bin\Debug\Ovjust.Pinche.Model.pdb
+I:\my_program_middle\PinChe\Ovjust.PinChe.Model\bin\Debug\DevExpress.Data.v12.1.dll
+I:\my_program_middle\PinChe\Ovjust.PinChe.Model\bin\Debug\DevExpress.Xpo.v12.1.dll
+I:\my_program_middle\PinChe\Ovjust.PinChe.Model\bin\Debug\Ovjust.Pinche.Basic.dll
+I:\my_program_middle\PinChe\Ovjust.PinChe.Model\bin\Debug\Ovjust.Pinche.Basic.pdb

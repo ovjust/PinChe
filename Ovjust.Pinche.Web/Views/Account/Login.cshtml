@@ -1,0 +1,61 @@
+﻿@model Ovjust.Pinche.Web.Controllers.AccountController.LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Login</title>
+        <link href="~/Content/page/login.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/plugins/jquery.fullbg.min.js"> </script>
+        <script>
+            var error = "@ViewBag.Error";
+            $(function () {
+                if (self != top) {
+                    top.window.location.href = self.window.location.href;
+                    return;
+                }
+                $('#UserName').val('chong.feng');
+
+                resizeLoginWindow();
+                $(window).resize(resizeLoginWindow);
+                $("form").attr("autocomplete", "off");
+                if (error) {
+                    alert(error);
+                }
+            });
+
+            function resizeLoginWindow() {
+                var background = $("#background");
+                var loginWindow = $("#loginWindow");
+                background.fullBg();
+                var width = (background.width() - loginWindow.width()) / 2;
+                var height = (background.height() - loginWindow.height()) / 2;
+                $("#loginWindow").css("margin-left", width + "px");
+                $("#loginWindow").css("margin-top", height + "px");
+            }
+        </script>
+    </head>
+    <body>
+        <img src="../Content/images/loginboard.png" alt="" id="background">
+        <div id="maincontent">
+            <div id="loginWindow" style="width: 796px; height: 419px; background: url(/Content/images/logincenter.png); background-repeat: no-repeat;">
+                @using (Html.BeginForm(new {returnUrl = Request.QueryString["ReturnUrl"]}))
+                {
+                    <div>
+                        @Html.TextBoxFor(m => m.UserName, new {@style = "margin:128px 0 0 545px;border:none;width:200px;border:none;background: url(/Images/tile.gif);"})
+                    </div>
+                    <div>
+                        @Html.PasswordFor(m => m.Password, new {@style = "margin:50px 0 0 545px;border:none;width:200px;border:none;background: url(/Images/tile.gif);"})
+                    </div>
+                    <div>
+                        <button type="submit" style="margin: 40px 0 0 620px; width: 135px; height: 44px; background: url(/Content/images/loginbtn.png); border: 0; cursor: pointer;"></button>
+                    </div>
+                }
+            </div>
+        </div>
+    </body>
+</html>

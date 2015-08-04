@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v12.1">
       <HintPath>..\..\Ovjust_Common\AFiles\dlls\DevExpress.Data.v12.1.dll</HintPath>
     </Reference>
@@ -135,6 +141,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -146,11 +153,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Infrastructure\Attributes\MyHandleErrorAttribute.cs" />
+    <Compile Include="Infrastructure\BaseApiController.cs" />
+    <Compile Include="Infrastructure\BaseController.cs" />
     <Compile Include="Infrastructure\Interceptors\HandleExceptionInterceptor.cs" />
-    <Compile Include="Models\MyPoint.cs" />
+    <Compile Include="Infrastructure\UserAuthority.cs" />
+    <Compile Include="Models\XpPointModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebApi\SelectionsController.cs" />
-    <Compile Include="WebApi\ValuesController.cs" />
+    <Compile Include="WebApi\MyPointController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\DataTables\css\dataTables.autoFill.css" />
@@ -1466,6 +1476,8 @@
     <Content Include="Views\Point\Index.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Shared\副本 _Layout.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Regist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1475,14 +1487,44 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Ovjust_Common\DotNet.Utilities\DotNet.Utilities.csproj">
+      <Project>{0a9704f9-7864-45af-bfa7-e09f2b30a29f}</Project>
+      <Name>DotNet.Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Ovjust_Common\Ovjust.DbXpoProvider\Ovjust.DbXpoProvider.csproj">
       <Project>{398648c0-8656-4359-8c95-7c2b81ed5428}</Project>
       <Name>Ovjust.DbXpoProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ovjust.Pinche.Basic\Ovjust.Pinche.Basic.csproj">
+      <Project>{1f04714d-ddd4-4f1c-8d06-e9afde5a194d}</Project>
+      <Name>Ovjust.Pinche.Basic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ovjust.PinChe.Model\Ovjust.Pinche.Model.csproj">
+      <Project>{ce8b9941-3a05-436a-b0be-e1278922a1a6}</Project>
+      <Name>Ovjust.Pinche.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
@@ -1508,6 +1550,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -9,29 +9,36 @@ namespace Ovjust.Pinche.Model.Orm.Base
 {
     [NonPersistent]
     [OptimisticLocking(false)]
-    public class XPObjectBase : XPBaseObject
+    public class BaseXPObject : XPBaseObject
     {
-        [NonPersistent]
-        public bool IsSystemUser;
-        protected XPObjectBase()
+        //[NonPersistent]
+        //public bool IsSystemUser;
+        protected BaseXPObject()
         {
-            this.IsSystemUser = true;
+            //this.IsSystemUser = true;
         }
-        public XPObjectBase(Session session)
+        public BaseXPObject(Session session)
             : base(session)
         {
-            this.IsSystemUser = true;
+            //this.IsSystemUser = true;
         }
+        [Key(true)]
+        [DisplayName("Id")]
+        public virtual int Id { set; get; }
+        [Indexed]
+        [DisplayName("Guid")]
+        public virtual Guid Code { set; get; }
+
         [DisplayName("创建时间")]
-        public virtual DateTime Rec_CreateTime { get; set; }
+        public virtual DateTime CreateTime { get; set; }
         //[DisplayName("创建人")]
         //public virtual string Rec_CreateBy { get; set; }
         [DisplayName("已经删除")]
-        public virtual int Disabled { get; set; }
+        public virtual bool Disabled { get; set; }
         //[Key(true)]
         //public virtual int ID { get; set; }
         [DisplayName("修改时间")]
-        public virtual DateTime Rec_ModifyTime { get; set; }
+        public virtual DateTime ModifyTime { get; set; }
         //[DisplayName("修改人")]
         //public virtual string Rec_ModifyBy { get; set; }
 
@@ -56,12 +63,13 @@ namespace Ovjust.Pinche.Model.Orm.Base
         {
             base.OnSaving();
             DateTime now = Global.Now;
-            this.Rec_ModifyTime = now;
+            this.ModifyTime = now;
         
             //if (this.ID == 0)
-            if (this.Rec_CreateTime == DateTime.MinValue)
+            if (this.CreateTime == DateTime.MinValue)
             {
-                this.Rec_CreateTime = now;
+                this.CreateTime = now;
+                this.Code = Guid.NewGuid();
                 //if (this.IsSystemUser)
                 //{
                 //    this.Rec_CreateBy = GetLoginUserId();
